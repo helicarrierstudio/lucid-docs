@@ -1,0 +1,60 @@
+---
+title: "Checkout"
+description: "Explore the checkout documentation for seamless crypto Crypto Subscriptions & Recurring Payments."
+icon: "credit-card"
+---
+
+## Add checkout SDK
+
+To start accepting payments using Lucid, you'll need to include the Lucid SDK library in your project. Add the following script tag to your HTML file:
+
+```html
+<script src="https://checkout.lucidconnect.xyz/lib.bundle.js"></script>
+```
+
+This script tag fetches the Lucid SDK library, making it available for use in your project.
+
+## Initiate a Subscription
+
+You can use the following code snippet to initiate a payment with Lucid:
+
+```js
+async function payWithLucid() {
+  // Create a new instance of Lucid with your merchant keys
+  const lucid = new Lucid({
+    publicKey: `<- merchant public key ->`,
+    privateKey: `<- merchant private key ->`,
+  });
+
+  // Use the Lucid instance to create a subscription
+  await lucid.createSubscription({
+    productId: `<- product identifier ->`,
+    amount: 10, // Amount in USDC
+    interval: 30, // Interval in days
+  });
+}
+```
+
+This method initiates the process of creating a subscription. It takes an object with three properties:
+
+The `createSubscription` method is called on the Lucid instance, initiating the process of creating a subscription. It takes in the following properties:
+
+<ResponseField name="productId" type="string" required>
+Name of your project. Used for the global title.
+
+</ResponseField>
+
+<ResponseField name="amount" type="number" required>
+Name of your project. Used for the global title.
+
+</ResponseField>
+
+<ResponseField name="interval" type="number" required>
+Name of your project. Used for the global title.
+
+</ResponseField>
+
+<ResponseField name="nextChargeDate" type="string" optional>
+Name of your project. Used for the global title.
+
+</ResponseField>

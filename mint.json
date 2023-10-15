@@ -1,17 +1,17 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "Starter Kit",
+  "name": "Lucid",
   "logo": {
-    "dark": "/logo/dark.svg",
-    "light": "/logo/light.svg"
+    "dark": "/logo/base.svg",
+    "light": "/logo/base.svg"
   },
   "favicon": "/favicon.png",
   "colors": {
     "primary": "#9563FF",
-    "light": "#AE87FF",
+    "light": "#785DC4",
     "dark": "#0D001D",
     "background": {
-      "dark": "#090014"
+      "dark": "#070410"
     },
     "anchors": {
       "from": "#FF7F57",
@@ -26,57 +26,37 @@
   ],
   "topbarCtaButton": {
     "name": "Dashboard",
-    "url": "https://dashboard.mintlify.com"
+    "url": "https://portal.lucidconnect.xyz"
   },
-  "tabs": [
-    {
-      "name": "API Reference",
-      "url": "api-reference"
-    }
-  ],
+
   "anchors": [
-    {
-      "name": "Documentation",
-      "icon": "book-open-cover",
-      "url": "https://mintlify.com/docs"
-    },
     {
       "name": "Community",
       "icon": "slack",
       "url": "https://mintlify.com/community"
     },
     {
-      "name": "Blog",
+      "name": "Demo",
       "icon": "newspaper",
-      "url": "https://mintlify.com/blog"
+      "url": "https://checkout.lucidconnect.xyz/demo"
     }
   ],
   "navigation": [
     {
       "group": "Get Started",
-      "pages": ["introduction", "quickstart", "development"]
+      "pages": ["introduction", "authentication"]
     },
     {
-      "group": "Essentials",
-      "pages": ["essentials/markdown", "essentials/code", "essentials/images", "essentials/settings", "essentials/navigation"]
-    },
-    {
-      "group": "API Documentation",
-      "pages": ["api-reference/authentication"]
-    },
-    {
-      "group": "Endpoint Examples",
-      "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/update",
-        "api-reference/endpoint/delete"
-      ]
+      "group": "Payments",
+      "pages": ["payments/checkout"]
     }
   ],
   "footerSocials": {
     "twitter": "https://twitter.com/mintlify",
     "github": "https://github.com/mintlify",
     "linkedin": "https://www.linkedin.com/company/mintsearch"
+  },
+  "modeToggle": {
+    "isHidden": true
   }
 }
