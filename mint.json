@@ -48,7 +48,7 @@
     },
     {
       "group": "Payments",
-      "pages": ["payments/checkout"]
+      "pages": ["payments/checkout", "payments/webhook"]
     }
   ],
   "footerSocials": {
