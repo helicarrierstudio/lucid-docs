@@ -21,7 +21,7 @@
   "topbarLinks": [
     {
       "name": "Support",
-      "url": "mailto:hi@mintlify.com"
+      "url": "support@lucidconnect.xyz"
     }
   ],
   "topbarCtaButton": {
@@ -30,11 +30,6 @@
   },
 
   "anchors": [
-    {
-      "name": "Community",
-      "icon": "slack",
-      "url": "https://mintlify.com/community"
-    },
     {
       "name": "Demo",
       "icon": "newspaper",
@@ -52,9 +47,8 @@
     }
   ],
   "footerSocials": {
-    "twitter": "https://twitter.com/mintlify",
-    "github": "https://github.com/mintlify",
-    "linkedin": "https://www.linkedin.com/company/mintsearch"
+    "twitter": "https://twitter.com/Lucidconnect",
+    "github": "https://github.com/orgs/lucidconnect"
   },
   "modeToggle": {
     "isHidden": true
