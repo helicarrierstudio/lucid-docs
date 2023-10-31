@@ -23,7 +23,6 @@ async function payWithLucid() {
   // Create a new instance of Lucid with your merchant keys
   const lucid = new Lucid({
     publicKey: `<- public key ->`,
-    privateKey: `<- private key ->`,
   });
 
   // Use the Lucid instance to create a subscription
@@ -31,6 +30,7 @@ async function payWithLucid() {
     productId: `<- product identifier ->`,
     amount: 10, // Amount in USDC
     interval: 30, // Interval in days
+    signature: `<- signature ->`, // signature generated for transaction
   });
 }
 ```
