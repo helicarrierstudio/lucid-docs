@@ -67,6 +67,8 @@ signature = Digest::Keccak.new(256).hexdigest payload
 ```
 
 ```js Node
+import { bufferToHex, ecsign, keccak256, toBuffer } from "ethereumjs-util";
+
 const getSignature = async (amount, token, interval, productId) => {
   const msg = `${amount}:${token}:${interval}:${devConfig.productId}`;
 
