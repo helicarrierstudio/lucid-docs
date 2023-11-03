@@ -35,26 +35,59 @@ async function payWithLucid() {
 }
 ```
 
-This method initiates the process of creating a subscription. It takes an object with three properties:
+## Building the Request Signature
 
-The `createSubscription` method is called on the Lucid instance, initiating the process of creating a subscription. It takes in the following properties:
+To authenticate your checkout request, generate a signature using your private key. This signature should be a hexadecimal digest of an HMAC-SHA256 hash calculated from the concatenation of your charge arguments in the following format:
 
-<ResponseField name="productId" type="string" required>
-Name of your project. Used for the global title.
+```
+amount:productId:interval:token:chain
+```
 
-</ResponseField>
+Below is an example of how to generate the request signature in Ruby:
 
-<ResponseField name="amount" type="number" required>
-Name of your project. Used for the global title.
+<CodeGroup>
+```go Go
+func generateSignature(text, sk string) string {
+  privateKey, err := crypto.HexToECDSA(sk[2:])
+  if err !=nil {
+      panic(err)
+  } 
+  raw := []byte(text)
+  digest := crypto.Keccak256(raw)
+  signature, _ := crypto.Sign(digest, privateKey)
+  return hexutil.Encode(signature)
+}
+```
 
-</ResponseField>
+```ruby Ruby
+require 'digest'
 
-<ResponseField name="interval" type="number" required>
-Name of your project. Used for the global title.
+payload = "#{amount}:#{productId}:#{interval}:#{token}:#{chain}"
+signature = Digest::Keccak.new(256).hexdigest payload
+```
 
-</ResponseField>
+```js Node
+const getSignature = async (amount, token, interval, productId) => {
+  const msg = `${amount}:${token}:${interval}:${devConfig.productId}`;
 
-<ResponseField name="nextChargeDate" type="string" optional>
-Name of your project. Used for the global title.
+  const privateKey = Buffer.from(devConfig.privateKey.slice(2), "hex");
+  const raw = Buffer.from(msg);
+  const digest = keccak256(raw);
 
-</ResponseField>
+  const { v, r, s } = ecsign(digest, privateKey);
+
+  const signature = Buffer.concat([r, s, toBuffer(v - 27)]);
+  return bufferToHex(signature);
+};
+```
+
+</CodeGroup>
+
+## Caution
+
+1.  **Protect Your Signature Token**: Never expose your private key publicly. It
+    should be kept confidential and securely stored.
+
+2.  **Server-Side Generation**: Avoid generating your request signature on the
+    client-side. Always request the signature from your server to maintain
+    security.

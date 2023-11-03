@@ -43,7 +43,11 @@
     },
     {
       "group": "Payments",
-      "pages": ["payments/checkout", "payments/webhook"]
+      "pages": [
+        "payments/checkout",
+        "payments/webhook",
+        "payments/payment-pages"
+      ]
     }
   ],
   "footerSocials": {
