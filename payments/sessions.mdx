@@ -1,0 +1,92 @@
+---
+title: "Sessions"
+description: "Explore the checkout documentation for seamless crypto Crypto Subscriptions & Recurring Payments."
+icon: "credit-card"
+---
+
+# Create a new Session
+
+- **Endpoint URL:** `/checkout/sessions`
+- **HTTP Method:** `POST`
+
+### Description
+
+Initialises a new checkout session.
+
+### Parameters
+
+List and describe all the parameters required for the endpoint.
+
+#### Request Parameters
+
+- **Customer*:**
+  - **Name:** `customer`
+  - **Type:** `string`
+  - **Description:** An indentify you use to reperesent a customer within your system.
+
+- **Product Id*:**
+  - **Name:** `product_id`
+  - **Type:** `string`
+  - **Description:** The Product id of the product the checkout session is created for.
+
+- **Callback URL (Optional):**
+  - **Name:** `callback_url`
+  - **Type:** `string`
+  - **Description:** `Url to redirect your customers to after payment`
+
+### Request Example
+
+Provide a sample request demonstrating how to use the endpoint.
+
+```http
+POST /api/your-endpoint HTTP/1.1
+Content-Type: application/json
+
+{
+  "customer": "123xyz",
+  "product_id": "123",
+}
+```
+
+### Response
+
+Describe the structure of the response and include sample responses for different scenarios.
+
+#### Success Response
+
+```json
+{
+  "status": "success",
+  "data": {
+    "sessionId": "abc-123-xyz",
+  }
+}
+```
+
+#### Error Response
+
+```json
+{
+  "status": "error",
+  "message": "Error message details"
+}
+```
+
+### Status Codes
+
+- **200 OK:** Successful request.
+- **400 Bad Request:** Invalid parameters or missing required parameters.
+- **404 Not Found:** Resource not found.
+- **500 Internal Server Error:** Something went wrong on the server.
+
+### Authentication
+
+This endpoint is authenticated. Using your public key, set the auth header as follows:
+
+```http
+Authorization: Bearer <public-key>
+```
+
+### Notes
+
+Parameters marked with an `*` are required.
